@@ -1,0 +1,50 @@
+{
+  "name": "user-ppg",
+  "author": "BM2210 student",
+  "description": "USER PPG Breakout - simulates a dual-wavelength reflectance PPG tissue model (fingertip). Outputs a photodiode-equivalent voltage on PD_OUT depending on which LED phase (RED_EN / IR_EN) is currently active.",
+  "version": "1.0.0",
+  "keywords": ["ppg", "biomedical", "photoplethysmography"],
+  "category": "Sensors",
+  "pins": [
+    "VCC",
+    "GND",
+    "RED_EN",
+    "IR_EN",
+    "PD_OUT",
+    "MOTION_OUT"
+  ],
+  "controls": [
+    {
+      "id": "hr",
+      "label": "Heart-rate (bpm)",
+      "type": "range",
+      "min": 40,
+      "max": 180,
+      "step": 1
+    },
+    {
+      "id": "spo2",
+      "label": "SpO2 (%)",
+      "type": "range",
+      "min": 70,
+      "max": 100,
+      "step": 0.5
+    },
+    {
+      "id": "pi",
+      "label": "Perfusion Index (%)",
+      "type": "range",
+      "min": 0.1,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "motion",
+      "label": "Motion / artifact (%)",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ]
+}

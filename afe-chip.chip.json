@@ -1,0 +1,19 @@
+{
+  "name": "afe",
+  "author": "BM2210 student",
+  "description": "Simple custom Analog Front End: time-multiplexes RED/IR/ambient LED phases, subtracts the dark phase from each lit phase, digitizes at 16-bit resolution and exposes the result over an SPI register map.",
+  "version": "1.0.0",
+  "keywords": ["afe", "spi", "biomedical"],
+  "category": "Sensors",
+  "pins": [
+    "VCC",
+    "GND",
+    "PD_IN",
+    "RED_EN",
+    "IR_EN",
+    "CS",
+    "SCK",
+    "MOSI",
+    "MISO"
+  ]
+}

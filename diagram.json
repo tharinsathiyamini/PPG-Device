@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "Tharinsa Thiyamini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -28.8, "left": -167.96, "attrs": {} },
+    { "type": "chip-user-ppg", "id": "userppg", "top": 39.42, "left": 72, "attrs": {} },
+    { "type": "chip-afe", "id": "afe", "top": -37.38, "left": 72, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": 108.74,
+      "left": 77.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-logic-analyzer", "id": "la1", "top": -38.05, "left": 211.2, "attrs": {} }
+  ],
+  "connections": [
+    ["afe:RED_EN", "la1:D0", "gray", []],
+    ["afe:IR_EN",  "la1:D1", "gray", []],
+    ["afe:CS",     "la1:D2", "purple", []],
+    ["afe:SCK",    "la1:D3", "green", []],
+    ["afe:MOSI",   "la1:D4", "blue", []],
+    ["afe:MISO",   "la1:D5", "orange", []],
+    ["esp:GND.1",  "la1:GND", "black", []],
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "oled:VCC", "red", [] ],
+    [ "esp:GND.1", "oled:GND", "black", [] ],
+    [ "esp:22", "oled:SCL", "green", [] ],
+    [ "esp:21", "oled:SDA", "yellow", [] ],
+    [ "esp:3V3", "afe:VCC", "red", [] ],
+    [ "esp:GND.2", "afe:GND", "black", [] ],
+    [ "esp:18", "afe:SCK", "green", [] ],
+    [ "esp:23", "afe:MOSI", "blue", [] ],
+    [ "esp:19", "afe:MISO", "orange", [] ],
+    [ "esp:5", "afe:CS", "purple", [] ],
+    [ "esp:3V3", "userppg:VCC", "red", [] ],
+    [ "esp:GND.3", "userppg:GND", "black", [] ],
+    [ "afe:RED_EN", "userppg:RED_EN", "gray", [] ],
+    [ "afe:IR_EN", "userppg:IR_EN", "gray", [] ],
+    [ "userppg:PD_OUT", "afe:PD_IN", "blue", [] ],
+    ["userppg:MOTION_OUT", "esp:4", "gray", []]
+  ],
+  "dependencies": {}
+}
